@@ -3,8 +3,6 @@ package io.edelivery.agent.transactionprofiles;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,7 +15,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.client.RestTemplate;
 
-import jdk.internal.jline.internal.Log;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
