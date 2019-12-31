@@ -16,5 +16,6 @@ public class Subscription extends Transaction{
 	
 	@Override
 	public void processTransaction(String messageId) {
+		System.out.println(accesspointurl);
 	}
 }

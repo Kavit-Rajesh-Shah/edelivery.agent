@@ -11,5 +11,4 @@ public class AgentConfiguration {
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
-
 }
