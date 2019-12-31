@@ -7,5 +7,4 @@ public class Tender extends Transaction{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
