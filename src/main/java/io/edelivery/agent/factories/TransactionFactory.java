@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 import io.edelivery.agent.transactionprofiles.Transaction;
 
 @Component
-public class TransactionFactory extends AbstractTransactionFactory {
+public class TransactionFactory {
 	
-	@Override
-	public Transaction getTransaction(String eventType) {
+	public static Transaction getTransaction(String eventType) {
 		// TODO Auto-generated method stub
 		HashMap<String, Transaction> transactionDictory = TransactionDictonary.getDictionary();
 		return transactionDictory.get(eventType);

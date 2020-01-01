@@ -1,20 +1,44 @@
 package io.edelivery.agent.transactionprofiles;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+
+import io.edelivery.agent.domain.Notification;
+import io.edelivery.agent.service.AccessPointService;
+import io.edelivery.agent.service.FileStorageService;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class Subscription extends Transaction{
 	
 	@Autowired
-	private RestTemplate restTemplate;
+	private AccessPointService accessPointService;
 	
-	@Value("${accesspointurl}") 
-	private String accesspointurl;
+	@Autowired
+	private FileStorageService fileService; 
 	
 	@Override
-	public void processTransaction(String messageId) {
+	public void processTransaction(Notification notification) {
+		
+		log.info("Procesing Subscription Request");
+		String messageId = notification.getEventData().getDocumentId();
+		
+		// Get the Transaction file
+		if(accessPointService != null) {
+		
+		File transactionfile = getTransactionFile(accessPointService, 
+												messageId);
+		
+		// Save the transaction file
+		fileService.saveFile(messageId, transactionfile);
+		}
 	}
+	
+	@Override
+    public String toString() {
+        return "DOCUMENT.SUBSCRIPTION";
+    }
 }

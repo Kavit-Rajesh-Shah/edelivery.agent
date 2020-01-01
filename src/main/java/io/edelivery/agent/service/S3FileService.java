@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class S3FileService {
+public class S3FileService implements FileStorageService {
 	
 	private AmazonS3 s3client;
 
@@ -38,14 +38,13 @@ public class S3FileService {
     
     @PostConstruct
     private void initializeAmazon() {
-    	log.info(this.accessKey + "--" + this.secretKey);
        AWSCredentials credentials = new BasicAWSCredentials(this.accessKey, this.secretKey);
        s3client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
     		   .withRegion(Regions.US_WEST_2).build();
     }
     
-    public void uploadFileTos3bucket(String fileName, File file) {
-    	log.info(endpointUrl + "" + bucketName + "" + accessKey + "" + secretKey);
+    public void saveFile(String fileName, File file) {
+    	log.info("saving the file:" + fileName);
         s3client.putObject(new PutObjectRequest(bucketName, fileName, file)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
     }
