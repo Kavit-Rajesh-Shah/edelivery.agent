@@ -11,10 +11,13 @@ public class Tender extends Transaction{
 	public void processTransaction(Notification notitication) {
 		// TODO Auto-generated method stub
 	}
+<<<<<<< HEAD
 
 	@Override
     public String toString() {
         return "DOCUMENT.TENDER";
     }
 	
+=======
+>>>>>>> 592da0a2f48bd8624cbe9d283a974bbf7887d83e
 }
