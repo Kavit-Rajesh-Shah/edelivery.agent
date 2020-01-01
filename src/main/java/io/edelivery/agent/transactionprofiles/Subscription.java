@@ -21,7 +21,6 @@ public class Subscription extends Transaction{
 	private FileStorageService fileService; 
 	
 	@Override
-<<<<<<< HEAD
 	public void processTransaction(Notification notification) {
 		
 		log.info("Procesing Subscription Request");
@@ -36,10 +35,6 @@ public class Subscription extends Transaction{
 		// Save the transaction file
 		fileService.saveFile(messageId, transactionfile);
 		}
-=======
-	public void processTransaction(String messageId) {
-		System.out.println(accesspointurl);
->>>>>>> 592da0a2f48bd8624cbe9d283a974bbf7887d83e
 	}
 	
 	@Override
