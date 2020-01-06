@@ -3,8 +3,6 @@ package io.edelivery.agent.service;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
@@ -12,9 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.client.RestTemplate;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Service
 public class AccessPointService {
 

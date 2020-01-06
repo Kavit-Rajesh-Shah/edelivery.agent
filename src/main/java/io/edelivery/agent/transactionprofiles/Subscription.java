@@ -22,19 +22,11 @@ public class Subscription extends Transaction{
 	
 	@Override
 	public void processTransaction(Notification notification) {
-		
 		log.info("Procesing Subscription Request");
 		String messageId = notification.getEventData().getDocumentId();
 		
-		// Get the Transaction file
-		if(accessPointService != null) {
-		
-		File transactionfile = getTransactionFile(accessPointService, 
-												messageId);
-		
-		// Save the transaction file
+		File transactionfile = getTransactionFile(accessPointService,messageId);
 		fileService.saveFile(messageId, transactionfile);
-		}
 	}
 	
 	@Override
